@@ -1,1 +1,1672 @@
-# Jays-Foodmart.ng
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jays Foodmart - Premium Nigerian Food Store. Fresh food items delivered with quality you can trust.">
+    <title>Jays Foodmart | Premium Nigerian Food Store</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & THEME SETUP --- */
+        :root {
+            --bg-main: #FAFAF7;
+            --bg-cream: #F4EFE6;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --text-main: #2A2421;
+            --text-muted: #6E6761;
+            --brown-light: #B89C82;
+            --brown-primary: #8C5B32;
+            --brown-dark: #4A2E16;
+            --orange-soft: #EE7D30;
+            --orange-hover: #D9691F;
+            --green-accent: #2D7D46;
+            --white: #FFFFFF;
+            --shadow-sm: 0 4px 12px rgba(42, 36, 33, 0.04);
+            --shadow-md: 0 8px 24px rgba(42, 36, 33, 0.08);
+            --shadow-lg: 0 16px 36px rgba(42, 36, 33, 0.12);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px 0 rgba(140, 91, 50, 0.08);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- GLOBAL RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button, input, select, textarea {
+            font: inherit;
+            color: inherit;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 247, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184, 156, 130, 0.2);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--brown-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cart-trigger {
+            position: relative;
+            background: var(--bg-cream);
+            color: var(--brown-dark);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cart-trigger:hover {
+            background: var(--brown-primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--orange-soft);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--white);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-main) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(238, 125, 48, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(45, 125, 70, 0.1);
+            color: var(--green-accent);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            color: var(--brown-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--orange-soft);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(238, 125, 48, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(238, 125, 48, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--green-accent);
+            border: 1px solid rgba(45, 125, 70, 0.3);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(45, 125, 70, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .hero-image-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--glass-shadow);
+            position: relative;
+        }
+
+        .hero-image-card img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+
+        /* --- FEATURES & DEALS BAR --- */
+        .features-section {
+            padding: 3rem 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--bg-cream);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 1rem;
+            background: var(--bg-main);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(140, 91, 50, 0.1);
+            color: var(--brown-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .feature-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        .feature-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* --- CONTROLS: SEARCH & CATEGORIES --- */
+        .shop-controls {
+            padding: 3rem 0 1.5rem;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 24px 16px 52px;
+            background: var(--white);
+            border: 1.5px solid rgba(184, 156, 130, 0.3);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--brown-primary);
+            box-shadow: 0 0 0 4px rgba(140, 91, 50, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--brown-light);
+            font-size: 1.2rem;
+        }
+
+        .category-scroll {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            white-space: nowrap;
+            padding: 10px 20px;
+            background: var(--white);
+            border: 1px solid rgba(184, 156, 130, 0.3);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--brown-primary);
+            color: var(--white);
+            border-color: var(--brown-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- OFFERS BANNER --- */
+        .offers-banner {
+            margin: 1rem 0 3rem;
+            background: linear-gradient(135deg, var(--brown-dark) 0%, #2A180B 100%);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .offers-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #F8D6B3;
+            margin-bottom: 0.5rem;
+        }
+
+        .offers-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .offer-pill {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* --- PRODUCT GRID & CARDS --- */
+        .product-grid-section {
+            padding-bottom: 5rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 1rem;
+            background: var(--bg-cream);
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(45, 125, 70, 0.9);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+
+        .package-size {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--orange-soft);
+            margin-bottom: 1rem;
+        }
+
+        .unit-price-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Intelligent Quantity Calculator Controls */
+        .calculator-box {
+            background: var(--bg-cream);
+            border-radius: var(--radius-md);
+            padding: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .calc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            border-radius: var(--radius-full);
+            padding: 4px;
+            border: 1px solid rgba(184, 156, 130, 0.3);
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            color: var(--brown-dark);
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .qty-btn:hover {
+            background: var(--brown-primary);
+            color: var(--white);
+        }
+
+        .qty-val {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--brown-dark);
+        }
+
+        .calc-total {
+            margin-top: 8px;
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--brown-primary);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--brown-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- CUSTOMER PROCESS SECTION --- */
+        .process-section {
+            padding: 4rem 0;
+            background: var(--bg-cream);
+            border-radius: var(--radius-lg);
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--brown-dark);
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 1.5rem 1rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: var(--orange-soft);
+            color: var(--white);
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        /* --- SLIDE-OUT CART DRAWER --- */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(42, 36, 33, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 460px;
+            background: var(--bg-main);
+            z-index: 2001;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cart-overlay.active .cart-drawer {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--brown-dark);
+        }
+
+        .close-cart {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            background: var(--white);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--brown-dark);
+        }
+
+        .cart-item-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: var(--orange-soft);
+            font-size: 0.95rem;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .cart-qty-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .remove-item {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #d9534f;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            background: var(--white);
+            border-top: 1px solid var(--bg-cream);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .summary-row.grand-total {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--brown-dark);
+            border-top: 1.5px dashed var(--bg-cream);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--green-accent);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .checkout-btn:hover {
+            background: #236337;
+        }
+
+        /* --- CHECKOUT MODAL --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(42, 36, 33, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--brown-dark);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 576px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 576px) {
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 4px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-main);
+            border: 1px solid rgba(184, 156, 130, 0.4);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--brown-primary);
+            background: var(--white);
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            background: #25D366;
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .floating-whatsapp:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5);
+            background: #20BA5A;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--brown-dark);
+            color: #E2D7CD;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange-soft);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="brand-logo">
+                <img src="https://i.ibb.co/bRRQP2ZX/Screenshot-20260803-180853-Instagram-Lite.png" alt="Jays Foodmart Logo">
+                <h1>Jays Foodmart</h1>
+            </a>
+            <div class="nav-actions">
+                <button class="cart-trigger" id="openCartBtn" aria-label="Open Shopping Cart">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <span class="cart-badge" id="cartBadgeCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="hero-tag">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        100% Authentic Nigerian Produce
+                    </span>
+                    <h2 class="hero-title">Fresh Nigerian Food Items Delivered With Quality You Can Trust</h2>
+                    <p class="hero-subtitle">From dried foods, seafood, spices, grains, palm oil, flour, beans, crayfish and much more. Shop premium food products from the comfort of your home.</p>
+                    <div class="hero-cta">
+                        <a href="#products-section" class="btn btn-primary">Shop Now</a>
+                        <a href="https://wa.me/2348121340826" target="_blank" class="btn btn-secondary">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.301-1.129z"/></svg>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image-card">
+                    <img src="https://i.ibb.co/sd5kNQk3/Screenshot-20260803-182431-Whats-App.jpg" alt="Featured Fresh Nigerian Store Item">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <div class="feature-info">
+                        <h4>Fresh Products</h4>
+                        <p>Direct from market</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <div class="feature-info">
+                        <h4>Affordable Prices</h4>
+                        <p>Best market rates</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-info">
+                        <h4>Fast Delivery</h4>
+                        <p>Safe & reliable</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-info">
+                        <h4>Trusted Quality</h4>
+                        <p>Handpicked stock</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN SHOP SECTION -->
+    <main class="container shop-controls" id="products-section">
+        
+        <!-- Live Search -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search dried foods, seafood, palm oil, beans...">
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="category-scroll" id="categoryContainer">
+            <button class="cat-btn active" data-category="All">All Items</button>
+            <button class="cat-btn" data-category="Fish">Fish</button>
+            <button class="cat-btn" data-category="Seafood">Seafood</button>
+            <button class="cat-btn" data-category="Palm Oil">Palm Oil</button>
+            <button class="cat-btn" data-category="Beans">Beans</button>
+            <button class="cat-btn" data-category="Rice">Rice</button>
+            <button class="cat-btn" data-category="Flour">Flour</button>
+            <button class="cat-btn" data-category="Spices">Spices</button>
+            <button class="cat-btn" data-category="Dried Foods">Dried Foods</button>
+        </div>
+
+        <!-- Offers Banner -->
+        <div class="offers-banner">
+            <div class="offers-content">
+                <h3>🔥 Weekly Deals & Fresh Stock</h3>
+                <p>Enjoy premium grade Nigerian foodstuffs at wholesale market prices.</p>
+            </div>
+            <div class="offers-badges">
+                <span class="offer-pill">⚡ Fast Shipping</span>
+                <span class="offer-pill">🛡️ Quality Guaranteed</span>
+                <span class="offer-pill">🇳🇬 100% Authentic</span>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productGrid">
+            <!-- Dynamic Insertion via JavaScript -->
+        </div>
+    </main>
+
+    <!-- CUSTOMER PROCESS SECTION -->
+    <section class="process-section">
+        <div class="container">
+            <h3 class="section-title">How It Works</h3>
+            <div class="timeline">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <div class="step-title">Choose Products</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <div class="step-title">Adjust Quantity</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <div class="step-title">Auto Price Calc</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <div class="step-title">Add To Cart</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">5</div>
+                    <div class="step-title">Checkout</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">6</div>
+                    <div class="step-title">WhatsApp Order Sent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Jays Foodmart</h2>
+                    <p>JPJ Basket - Premium Nigerian Online Grocery & Food Market.</p>
+                    <p><strong>Phone:</strong> +2348121340826</p>
+                    <p><strong>WhatsApp:</strong> +2348121340826</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products-section">Products</a></li>
+                        <li><a href="#products-section">Categories</a></li>
+                        <li><a href="https://wa.me/2348121340826" target="_blank">WhatsApp Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Location</h4>
+                    <div class="map-placeholder">
+                        📍 Lagos, Nigeria (Google Maps Place)
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Jays Foodmart (JPJ Basket). All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="cart-body" id="cartItemsContainer">
+                <!-- Cart Items Rendered Here -->
+            </div>
+            <div class="cart-footer">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₦0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>Calculated at checkout</span>
+                </div>
+                <div class="summary-row grand-total">
+                    <span>Grand Total</span>
+                    <span id="cartGrandTotal">₦0</span>
+                </div>
+                <button class="checkout-btn" id="openCheckoutModalBtn">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Delivery Details</h3>
+                <button class="close-cart" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required placeholder="e.g. Chioma Adebayo">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required placeholder="e.g. 08012345678">
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp Number *</label>
+                        <input type="tel" id="whatsapp" required placeholder="e.g. 08012345678">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="e.g. chioma@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <input type="text" id="state" required placeholder="e.g. Lagos State">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" required placeholder="e.g. Ikeja">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address">Delivery Address *</label>
+                        <textarea id="address" rows="2" required placeholder="Enter full street address"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" rows="2" placeholder="Special delivery instructions..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="checkout-btn" style="background: var(--orange-soft);">
+                    Place Order via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/2348121340826?text=Hello%20Jays%20Foodmart,%20I%20have%20a%20question." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.301-1.129z"/></svg>
+        Need help? Ask us anything on WhatsApp.
+    </a>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        // --- PRODUCT DATABASE ---
+        const productsData = [
+            { id: 1, name: "Dried Goat meat", price: 140000, size: "1 Portion", category: "Dried Foods", image: "https://i.ibb.co/B2jJZy17/Screenshot-20260803-182518-Whats-App.jpg" },
+            { id: 2, name: "Dried panla fish", price: 38000, size: "50 pieces", category: "Fish", image: "https://i.ibb.co/BVhL5CL5/Screenshot-20260803-182500-Whats-App.jpg" },
+            { id: 3, name: "Catfish cutlets", price: 75000, size: "50 pieces", category: "Fish", image: "https://i.ibb.co/RkGpKqbN/Screenshot-20260803-182450-Whats-App.jpg" },
+            { id: 4, name: "Bleached palm oil", price: 6000, size: "1 litre", category: "Palm Oil", image: "https://i.ibb.co/8nBHJLvZ/Screenshot-20260803-182437-Whats-App.jpg" },
+            { id: 5, name: "Hand peeled melon seed", price: 15000, size: "2kg", category: "Dried Foods", image: "https://i.ibb.co/sd5kNQk3/Screenshot-20260803-182431-Whats-App.jpg" },
+            { id: 6, name: "Pap powder", price: 10000, size: "1kg", category: "Flour", image: "https://i.ibb.co/DH00j051/Screenshot-20260803-182353-Whats-App.jpg" },
+            { id: 7, name: "Bonga fish powder", price: 55000, size: "1kg", category: "Fish", image: "https://i.ibb.co/5hJcgCYs/Screenshot-20260803-182341-Whats-App.jpg" },
+            { id: 8, name: "Bonga fish fillets", price: 55000, size: "1kg", category: "Fish", image: "https://i.ibb.co/G4ccrrgs/Screenshot-20260803-182305-Whats-App.jpg" },
+            { id: 9, name: "Crayfish powder", price: 16000, size: "500g", category: "Seafood", image: "https://i.ibb.co/7dKbxpby/Screenshot-20260803-182259-Whats-App.jpg" },
+            { id: 10, name: "Stock Fish cutlets", price: 42000, size: "1kg", category: "Fish", image: "https://i.ibb.co/HLB1Bm3y/Screenshot-20260803-182232-Whats-App.jpg" },
+            { id: 11, name: "Stock Fish fillets", price: 45000, size: "1kg", category: "Fish", image: "https://i.ibb.co/9HXSPWPz/Screenshot-20260803-182222-Whats-App.jpg" },
+            { id: 12, name: "Dried iru (locust beans)", price: 7500, size: "500g", category: "Spices", image: "https://i.ibb.co/39jFC7b7/Screenshot-20260803-182208-Whats-App.jpg" },
+            { id: 13, name: "Chili pepper powder", price: 10000, size: "500g", category: "Spices", image: "https://i.ibb.co/WWL3Py6W/Screenshot-20260803-182153-Whats-App.jpg" },
+            { id: 14, name: "Large sized cotonou prawns", price: 32000, size: "500g", category: "Seafood", image: "https://i.ibb.co/DHN0xVQs/Screenshot-20260803-182109-Whats-App.jpg" },
+            { id: 15, name: "Palm oil", price: 4000, size: "1 litre", category: "Palm Oil", image: "https://i.ibb.co/5WHgbxV0/Screenshot-20260803-182041-Whats-App.jpg" },
+            { id: 16, name: "Palm oil", price: 15000, size: "5 litre", category: "Palm Oil", image: "https://i.ibb.co/hRGDfvpW/Screenshot-20260803-182020-Whats-App.jpg" },
+            { id: 17, name: "Palm oil", price: 8000, size: "2 litre", category: "Palm Oil", image: "https://i.ibb.co/4RKG4zJn/Screenshot-20260803-182031-Whats-App.jpg" },
+            { id: 18, name: "Whole cray fish", price: 160000, size: "500g", category: "Seafood", image: "https://i.ibb.co/zg2xrkr/Screenshot-20260803-182006-Whats-App.jpg" },
+            { id: 19, name: "Coconut candy (full custard bucket)", price: 30000, size: "1 Bucket", category: "Dried Foods", image: "https://i.ibb.co/ZR2Tmx6F/Screenshot-20260803-181940-Whats-App.jpg" },
+            { id: 20, name: "Mangala cutlets (tail and middle)", price: 20000, size: "1kg", category: "Fish", image: "https://i.ibb.co/GQRpTtwh/Screenshot-20260803-181553-Whats-App.jpg" },
+            { id: 21, name: "Thailand butterfly mangala", price: 20000, size: "1kg", category: "Fish", image: "https://i.ibb.co/0y9b97vM/Screenshot-20260803-181505-Whats-App.jpg" },
+            { id: 22, name: "Dried ponmo ijebu", price: 20000, size: "50 medium pieces", category: "Dried Foods", image: "https://i.ibb.co/rKmYc26Z/Screenshot-20260803-181337-Whats-App.jpg" },
+            { id: 23, name: "Peeled beans", price: 5500, size: "1kg", category: "Beans", image: "https://i.ibb.co/4ZzhmS96/Screenshot-20260803-181301-Whats-App.jpg" },
+            { id: 24, name: "Beans powder", price: 6000, size: "1kg", category: "Beans", image: "https://i.ibb.co/nsPRQ2Y9/Screenshot-20260803-181253-Whats-App.jpg" },
+            { id: 25, name: "Pap powder (Premium)", price: 12000, size: "1kg", category: "Flour", image: "https://i.ibb.co/cSSP17Fy/Screenshot-20260803-181207-Whats-App.jpg" },
+            { id: 26, name: "Ijebu garri", price: 3000, size: "2kg", category: "Flour", image: "https://i.ibb.co/LdwdfrGq/Screenshot-20260803-181155-Whats-App.jpg" },
+            { id: 27, name: "Ofada rice", price: 10000, size: "2kg", category: "Rice", image: "https://i.ibb.co/LdFv24d7/Screenshot-20260803-181144-Whats-App.jpg" },
+            { id: 28, name: "Plantain flour", price: 12000, size: "2kg", category: "Flour", image: "https://i.ibb.co/vxBCPFWG/Screenshot-20260803-181133-Whats-App.jpg" },
+            { id: 29, name: "Yam flour", price: 10000, size: "2kg", category: "Flour", image: "https://i.ibb.co/mVhSDcKh/Screenshot-20260803-181118-Whats-App.jpg" },
+            { id: 30, name: "Picked Honey beans", price: 3000, size: "1kg", category: "Beans", image: "https://i.ibb.co/F432dW9K/Screenshot-20260803-181009-Whats-App.jpg" }
+        ];
+
+        // --- STATE MANAGEMENT ---
+        let cart = [];
+        let productQuantities = {}; 
+        let currentCategory = 'All';
+        let searchQuery = '';
+
+        // Format Currency Function
+        const formatNaira = (amount) => '₦' + amount.toLocaleString('en-NG');
+
+        // Initialize Product Local State
+        productsData.forEach(p => {
+            productQuantities[p.id] = 1;
+        });
+
+        // DOM ELEMENTS
+        const productGrid = document.getElementById('productGrid');
+        const searchInput = document.getElementById('searchInput');
+        const categoryContainer = document.getElementById('categoryContainer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const openCartBtn = document.getElementById('openCartBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartSubtotalEl = document.getElementById('cartSubtotal');
+        const cartGrandTotalEl = document.getElementById('cartGrandTotal');
+        const cartBadgeCount = document.getElementById('cartBadgeCount');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const openCheckoutModalBtn = document.getElementById('openCheckoutModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const checkoutForm = document.getElementById('checkoutForm');
+
+        // --- RENDER PRODUCTS GRID ---
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            
+            const filtered = productsData.filter(product => {
+                const matchesCategory = (currentCategory === 'All') || 
+                                        (product.category.toLowerCase() === currentCategory.toLowerCase()) ||
+                                        (currentCategory === 'Fish' && product.category === 'Fish') ||
+                                        (currentCategory === 'Seafood' && product.category === 'Seafood') ||
+                                        (currentCategory === 'Palm Oil' && product.category === 'Palm Oil') ||
+                                        (currentCategory === 'Beans' && product.category === 'Beans') ||
+                                        (currentCategory === 'Rice' && product.category === 'Rice') ||
+                                        (currentCategory === 'Flour' && product.category === 'Flour') ||
+                                        (currentCategory === 'Spices' && product.category === 'Spices') ||
+                                        (currentCategory === 'Dried Foods' && product.category === 'Dried Foods');
+                
+                const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      product.category.toLowerCase().includes(searchQuery.toLowerCase());
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                productGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">No items match your search. Try searching for something else.</div>`;
+                return;
+            }
+
+            filtered.forEach(product => {
+                const qty = productQuantities[product.id] || 1;
+                const calcTotalPrice = product.price * qty;
+
+                const card = document.createElement('div');
+                card.className = 'product-card fade-in';
+                card.innerHTML = `
+                    <div>
+                        <div class="img-wrapper">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy">
+                            <span class="stock-badge">In Stock</span>
+                        </div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="package-size">Package Size: ${product.size}</div>
+                        <div class="price-tag">
+                            ${formatNaira(product.price)} 
+                            <span class="unit-price-sub">/ unit</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- Intelligent Quantity Calculator -->
+                        <div class="calculator-box">
+                            <div class="calc-header">
+                                <span>Quantity:</span>
+                                <span>Unit Size: ${product.size}</span>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="qty-btn" onclick="updateCardQty(${product.id}, -1)">-</button>
+                                <span class="qty-val">${qty}</span>
+                                <button class="qty-btn" onclick="updateCardQty(${product.id}, 1)">+</button>
+                            </div>
+                            <div class="calc-total" id="calc-total-${product.id}">
+                                Total: ${formatNaira(calcTotalPrice)}
+                            </div>
+                        </div>
+
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
+                            Add To Cart
+                        </button>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        // --- INTELLIGENT QUANTITY CALCULATOR (LIVE CARD UPDATES) ---
+        window.updateCardQty = function(productId, delta) {
+            let current = productQuantities[productId] || 1;
+            let updated = current + delta;
+            if (updated < 1) updated = 1;
+            productQuantities[productId] = updated;
+
+            // Target re-render or inline update for performance
+            const product = productsData.find(p => p.id === productId);
+            const totalEl = document.getElementById(`calc-total-${productId}`);
+            const cardObj = totalEl ? totalEl.closest('.product-card') : null;
+            
+            if (cardObj && totalEl) {
+                const qtyValEl = cardObj.querySelector('.qty-val');
+                qtyValEl.textContent = updated;
+                totalEl.textContent = `Total: ${formatNaira(product.price * updated)}`;
+            } else {
+                renderProducts();
+            }
+        };
+
+        // --- CART OPERATIONS ---
+        window.addToCart = function(productId) {
+            const product = productsData.find(p => p.id === productId);
+            const qtyToAdd = productQuantities[productId] || 1;
+
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += qtyToAdd;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    size: product.size,
+                    image: product.image,
+                    qty: qtyToAdd
+                });
+            }
+
+            // Reset quantity back to 1 after adding to cart
+            productQuantities[productId] = 1;
+            renderProducts();
+            updateCartUI();
+            openCart();
+        };
+
+        window.updateCartItemQty = function(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+            }
+            updateCartUI();
+        };
+
+        window.removeCartItem = function(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            updateCartUI();
+        };
+
+        function updateCartUI() {
+            // Update Cart Items List
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `<div style="text-align:center; padding: 2rem; color: var(--text-muted);">Your cart is empty.</div>`;
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.qty;
+                    subtotal += itemTotal;
+                    totalItems += item.qty;
+
+                    const el = document.createElement('div');
+                    el.className = 'cart-item';
+                    el.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-meta">${item.size} | ${formatNaira(item.price)} each</div>
+                            <div class="cart-item-price">${formatNaira(itemTotal)}</div>
+                            <div class="cart-item-controls">
+                                <button class="cart-qty-btn" onclick="updateCartItemQty(${item.id}, -1)">-</button>
+                                <span style="font-weight:700; font-size: 0.85rem;">${item.qty}</span>
+                                <button class="cart-qty-btn" onclick="updateCartItemQty(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                        <span class="remove-item" onclick="removeCartItem(${item.id})">✕</span>
+                    `;
+                    cartItemsContainer.appendChild(el);
+                });
+            }
+
+            cartSubtotalEl.textContent = formatNaira(subtotal);
+            cartGrandTotalEl.textContent = formatNaira(subtotal);
+            cartBadgeCount.textContent = totalItems;
+        }
+
+        // --- CART DRAWER CONTROLS ---
+        function openCart() { cartOverlay.classList.add('active'); }
+        function closeCart() { cartOverlay.classList.remove('active'); }
+
+        openCartBtn.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) closeCart();
+        });
+
+        // --- CHECKOUT MODAL & WHATSAPP GENERATOR ---
+        openCheckoutModalBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before checking out.');
+                return;
+            }
+            closeCart();
+            checkoutModal.classList.add('active');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            checkoutModal.classList.remove('active');
+        });
+
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const state = document.getElementById('state').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+
+            let grandTotal = 0;
+            let itemsSummary = "";
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                grandTotal += itemTotal;
+                itemsSummary += `${index + 1}. *${item.name}* (${item.size})\n   Quantity: ${item.qty}\n   Price: ${formatNaira(itemTotal)}\n\n`;
+            });
+
+            // Construct WhatsApp Message
+            let message = `🛒 *NEW ORDER - JAYS FOODMART*\n`;
+            message += `------------------------------------\n`;
+            message += `👤 *CUSTOMER INFORMATION*\n`;
+            message += `• *Name:* ${fullName}\n`;
+            message += `• *Phone:* ${phone}\n`;
+            message += `• *WhatsApp:* ${whatsapp}\n`;
+            if (email) message += `• *Email:* ${email}\n`;
+            message += `\n📍 *DELIVERY ADDRESS*\n`;
+            message += `${address}, ${city}, ${state}\n`;
+            if (notes) message += `*Notes:* ${notes}\n`;
+            message += `------------------------------------\n`;
+            message += `📦 *ORDERED PRODUCTS*\n\n`;
+            message += itemsSummary;
+            message += `------------------------------------\n`;
+            message += `💰 *TOTAL AMOUNT:* ${formatNaira(grandTotal)}\n`;
+            message += `------------------------------------\n`;
+            message += `Please confirm my order and send payment details. Thank you!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const targetPhone = "2348121340826";
+            const whatsappURL = `https://wa.me/${targetPhone}?text=${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappURL, '_blank');
+
+            // Reset Form & Cart
+            checkoutModal.classList.remove('active');
+            cart = [];
+            updateCartUI();
+        });
+
+        // --- FILTER & SEARCH LISTENERS ---
+        categoryContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('cat-btn')) {
+                document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.getAttribute('data-category');
+                renderProducts();
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderProducts();
+        });
+
+        // Initial Load
+        renderProducts();
+        updateCartUI();
+    </script>
+</body>
+</html>
